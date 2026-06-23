@@ -3,6 +3,12 @@ const express = require("express");
 const pool = require("./db");
 
 const app = express();
+app.get("/", (req, res) => {
+    res.json({
+        message: "CodeVector Product API is running",
+        endpoint: "/products"
+    });
+});
 app.get("/products", async (req, res) => {
     try {
         const { category, cursor, limit = 20 } = req.query;
